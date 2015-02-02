@@ -1,0 +1,16 @@
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-collapse">
+            <div class="navbar-header">
+                <a href="/" target="_blank" class="navbar-brand">
+                    {rePAC}
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: hash==item.url}" ng-repeat="item in menu">
+                    <a href="/#/{{item.url}}">{{item.title}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
