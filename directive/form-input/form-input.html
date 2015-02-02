@@ -1,0 +1,39 @@
+<form class="form-horizontal" name="myForm" ng-show="form" novalidate ng-submit="myForm.$valid && save(form.model, form.submodels)">
+    <h1>{{form.name}}</h1>
+    <!-- shblonization -->
+    <div class="form-group" ng-repeat="item in form.field" ng-show="item.title" ng-init="item.callback()">
+        <label for="{{item.model}}" class="col-sm-4 control-label">{{item.title}} <sup ng-show="item.required">*</sup>
+        </label>
+        <div class="col-sm-8">
+
+            <input
+                type="{{item.type}}"
+                class="form-control"
+                placeholder="{{item.placeholder}}"
+                ng-if="item.type == 'text' || item.type == 'hidden' || item.type == 'checkbox'"
+                ng-model="input[item.model]"
+                ng-true-value="true"
+                ng-class="{'w-a': (item.type == 'checkbox') }"
+                ng-required="item.required" id="{{item.model}}">
+
+            <select
+                class="form-control"
+                ng-if="item.type == 'select'"
+                ng-required="item.required"
+                ng-model="input[item.model]"
+                ng-init="input[item.model] && item.list.indexOf(input[item.model])==-1 && item.list.push(input[item.model])">
+                <option value=""> --- </option>
+                <option ng-repeat="el in item.list" ng-selected="checkOptions(el.item, input[item.model])" value="{{el.item}}">{{el.name}}</option>
+            </select>
+
+        </div>
+    </div>
+    <!-- /shblonization -->
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-10">
+            <button type="submit" class="btn btn-primary btn-lg" ng-class="{disabled: !myForm.$valid}">Сохранить</button>
+        </div>
+    </div>
+</form>
