@@ -1,0 +1,13 @@
+<ul class="pagination pagination-sm" ng-if="pages && pages.length">
+    <li ng-if="current">
+        <a href="" ng-click="fn(false, current-1)">«</a>
+    </li>
+
+    <li ng-repeat="p in pages | pager : current : count" ng-class="{active: p == current}">
+        <a href="" ng-click="fn(false, p)">{{p+1}}</a>
+    </li>
+
+    <li ng-if="(pages.length - 1 - current) > 0">
+        <a href="" ng-click="fn(false, current+1)">»</a>
+    </li>
+</ul>
