@@ -15,10 +15,10 @@
 
 *type* - тип поля:
 
-    * hidden
-    * text
-    * select
-    * checkbox
+* hidden
+* text
+* select
+* checkbox
 
 *required* - поле с данным значением выствленным в TRUE будет обязательным для заполнения
 
@@ -34,12 +34,14 @@
 $scope.save = function(){
   /* сохраняем данные формы */
 };
+
 ```
 
 ```js
 $scope.checkOptions = function(){
     /* проверяем является ли элемент select выбранным */
 };
+```
 
 ---
 
