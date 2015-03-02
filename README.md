@@ -6,6 +6,8 @@
 
 ## Директивы
 
+* [datapiker](directive/datapiker/)
+
 * [menu](directive/admin-menu/)
 
 * [form](directive/form-input/)
