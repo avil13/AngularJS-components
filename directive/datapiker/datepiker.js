@@ -108,7 +108,7 @@ APP.directive('datePiker', [function() {
                     return false;
                 }
                 scope.currDate = day.d;
-                // scope.typeView = false;
+                scope.typeView = false;
             };
 
             scope.changeView = function() {
