@@ -4,7 +4,7 @@ APP.directive('datePiker', [function() {
         templateUrl: 'datepiker.html',
         scope: {
             currDate: '=date', // Date()
-            firstDay: '@'
+            firstDay: '@' // 1
         },
         link: function(scope, iElement, iAttrs) {
 
@@ -17,7 +17,13 @@ APP.directive('datePiker', [function() {
                 return date;
             };
 
-            scope.currDate = scope.formatDate(scope.currDate) || scope.formatDate(new Date());
+            scope.currDate = scope.formatDate(scope.currDate);
+
+            if (scope.maxDay === undefined) {
+                scope.maxDay = scope.formatDate(new Date());
+            } else {
+                scope.maxDay = scope.formatDate(scope.maxDay);
+            }
 
             if (scope.firstDay === undefined) {
                 scope.firstDay = 1;
@@ -39,7 +45,7 @@ APP.directive('datePiker', [function() {
                 date.setMilliseconds(1);
 
                 if (date.getDay() === 0) {
-                    date.setDate(-5);
+                    date.setDate(scope.firstDay - 6);
                 } else {
                     date.setDate(date.getDate() - (date.getDay() - scope.firstDay));
                 }

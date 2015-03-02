@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.15/angular-locale_ru-ru.js"></script>
+
+    <style>
+    .data-piker td:not(.text-muted){cursor:pointer;}
+    </style>
+
 </head>
 
 <body>
@@ -28,8 +33,8 @@
     <script>
     APP.controller('IndexCtrl', ['$scope', function($scope) {
         $scope.t = new Date();
-        $scope.t.setYear(2008);
-        $scope.t.setMonth(9);
+        // $scope.t.setYear(2008);
+        // $scope.t.setMonth(9);
     }]);
     </script>
 </body>
