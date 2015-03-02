@@ -4,7 +4,7 @@
 
     <!-- calendare  -->
 
-    <table class="data-piker table-condensed table-bordered table-striped" ng-switch-when="true">
+    <table class="data-piker table-condensed table-bordered" ng-switch-when="true">
         <tr>
             <th colspan="7" class="text-center">
                 <span class="btn-group">
@@ -20,7 +20,7 @@
         </tr>
         <!--  -->
         <tr ng-repeat="week in weeks">
-            <td ng-repeat="day in week" ng-click="setDate(day)" ng-class="{'bg-primary':(day.d==currDate), 'text-muted':day.d.getMonth()!=currDate.getMonth()}">
+            <td ng-repeat="day in week" ng-click="setDate(day)" ng-class="{'bg-primary':(day.d==currDate), 'text-muted':chekDate(day)}">
                 <span>{{day.d | date:'dd'}}</span>
             </td>
         </tr>

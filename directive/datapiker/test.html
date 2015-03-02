@@ -20,6 +20,7 @@
         <div class="clearfix"></div>
 
         <date-piker date="t" first-day="1"></date-piker>
+        <date-piker date="t2" first-day="1" min="t"></date-piker>
 
     </div>
     <!--  -->
@@ -33,6 +34,7 @@
     <script>
     APP.controller('IndexCtrl', ['$scope', function($scope) {
         $scope.t = new Date();
+        $scope.t2 = new Date();
     }]);
     </script>
 </body>

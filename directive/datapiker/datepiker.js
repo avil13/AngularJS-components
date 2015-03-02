@@ -4,7 +4,9 @@ APP.directive('datePiker', [function() {
         templateUrl: 'datepiker.html',
         scope: {
             currDate: '=date', // Date()
-            firstDay: '@' // 1
+            firstDay: '@', // 1
+            max: '=', // Date()
+            min: '=' // Date()
         },
         link: function(scope, iElement, iAttrs) {
 
@@ -18,12 +20,6 @@ APP.directive('datePiker', [function() {
             };
 
             scope.currDate = scope.formatDate(scope.currDate);
-
-            if (scope.maxDay === undefined) {
-                scope.maxDay = scope.formatDate(new Date());
-            } else {
-                scope.maxDay = scope.formatDate(scope.maxDay);
-            }
 
             if (scope.firstDay === undefined) {
                 scope.firstDay = 1;
@@ -95,10 +91,24 @@ APP.directive('datePiker', [function() {
                 scope.next(-1);
             };
 
+            scope.chekDate = function(day) {
+                var max = false,
+                    min = false;
+                if (scope.max) {
+                    max = (day.d.getDate() > scope.max.getDate() && day.d.getMonth() >= scope.max.getMonth() && day.d.getFullYear() >= scope.max.getFullYear()) || (day.d.getMonth() > scope.max.getMonth() && day.d.getFullYear() >= scope.max.getFullYear());
+                }
+                if (scope.min) {
+                    min = (day.d.getDate() < scope.min.getDate() && day.d.getMonth() <= scope.min.getMonth() && day.d.getFullYear() <= scope.min.getFullYear()) || (day.d.getMonth() < scope.min.getMonth() && day.d.getFullYear() <= scope.min.getFullYear());
+                }
+                return (min || max || day.d.getMonth() !== scope.currDate.getMonth());
+            };
+
             scope.setDate = function(day) {
-                if (day.d.getMonth() != scope.currDate.getMonth()) return false;
+                if (scope.chekDate(day)) {
+                    return false;
+                }
                 scope.currDate = day.d;
-                scope.typeView = false;
+                // scope.typeView = false;
             };
 
             scope.changeView = function() {
