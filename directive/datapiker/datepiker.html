@@ -20,7 +20,7 @@
         </tr>
         <!--  -->
         <tr ng-repeat="week in weeks">
-            <td ng-repeat="day in week" ng-click="setDate(day)" ng-class="{'bg-primary':(day.d==currDate), 'text-muted':chekDate(day)}">
+            <td ng-repeat="day in week" ng-click="setDate(day)" ng-class="chekDate(day)">
                 <span>{{day.d | date:'dd'}}</span>
             </td>
         </tr>
