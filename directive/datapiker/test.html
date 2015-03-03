@@ -9,18 +9,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.15/angular-locale_ru-ru.js"></script>
 
     <style>
-    .data-piker td:not(.text-muted){cursor:pointer;}
+    .data-piker td:not(.text-muted) {
+        cursor: pointer;
+    }
     </style>
 
 </head>
 
 <body>
     <div class="container" ng-controller="IndexCtrl">
-        <div class="well"> {{t}} &nbsp;&nbsp;&nbsp;&nbsp; {{t2}} </div>
-        <div class="clearfix"></div>
 
-        <date-piker date="t" first-day="1"></date-piker>
-        <date-piker date="t2" first-day="1" max="t"></date-piker>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+            <div class="well">
+                <span class="pull-left label label-info">{{t2}}</span>
+                <span class="pull-right label label-info">{{t}}</span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="well">
+                <date-piker date="t2" first-day="1" max="t" class="pull-left"></date-piker>
+                <date-piker date="t" first-day="1" class="pull-right"></date-piker>
+                <div class="clearfix"></div>
+            </div>
+        </div>
 
     </div>
     <!--  -->
