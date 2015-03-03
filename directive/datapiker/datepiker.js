@@ -91,10 +91,11 @@ APP.directive('datePiker', [function() {
                 scope.next(-1);
             };
 
-            scope.chekDate = function(day) {
+            scope.chekDate = function(day, type) {
                 var max = false,
                     min = false,
                     klass = [],
+                    muted,
                     cd = scope.currDate,
                     d = day.d;
                 if (scope.max) {
@@ -103,7 +104,11 @@ APP.directive('datePiker', [function() {
                 if (scope.min) {
                     min = (d.getDate() < scope.min.getDate() && d.getMonth() <= scope.min.getMonth() && d.getFullYear() <= scope.min.getFullYear()) || (d.getMonth() < scope.min.getMonth() && d.getFullYear() <= scope.min.getFullYear());
                 }
-                if (min || max || d.getMonth() !== cd.getMonth()) {
+                muted = min || max || d.getMonth() !== cd.getMonth();
+                if(type){
+                    return muted;
+                }
+                if (muted) {
                     klass.push('text-muted');
                 }
                 if (d.getDate() === cd.getDate() && d.getMonth() === cd.getMonth() && d.getFullYear() === cd.getFullYear()) {
@@ -113,7 +118,7 @@ APP.directive('datePiker', [function() {
             };
 
             scope.setDate = function(day) {
-                if (scope.chekDate(day)) {
+                if (scope.chekDate(day, true)) {
                     return false;
                 }
                 scope.currDate = day.d;
