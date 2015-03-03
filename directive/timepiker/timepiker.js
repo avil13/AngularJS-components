@@ -9,9 +9,9 @@ APP.directive('timePiker', [function() {
             scope.typeView = false;
             scope.t = {};
 
-            var int = function (str) {
+            var int = function(str) {
                 str += '';
-                return parseInt(str.replace(/\D+/g,""), 10);
+                return parseInt(str.replace(/\D+/g, ""), 10);
             };
 
             var hm = function() {
@@ -20,9 +20,14 @@ APP.directive('timePiker', [function() {
             };
             hm();
 
-            scope.upd = function () {
-                scope.currDate.setMinutes(int(scope.t.minutes));
-                scope.currDate.setHours(int(scope.t.hour));
+            scope.upd = function() {
+                scope.t.minutes = int(scope.t.minutes);
+                scope.t.hour = int(scope.t.hour);
+                if (isNaN(scope.t.minutes) || isNaN(scope.t.hour)) {
+                    return false;
+                }
+                scope.currDate.setMinutes(scope.t.minutes);
+                scope.currDate.setHours(scope.t.hour);
                 hm();
             };
 
@@ -37,7 +42,7 @@ APP.directive('timePiker', [function() {
                 hm();
             };
 
-            scope.changeView = function () {
+            scope.changeView = function() {
                 scope.typeView = !scope.typeView;
             };
         }
