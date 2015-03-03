@@ -94,17 +94,19 @@ APP.directive('datePiker', [function() {
             scope.chekDate = function(day) {
                 var max = false,
                     min = false,
-                    klass = [];
+                    klass = [],
+                    cd = scope.currDate,
+                    d = day.d;
                 if (scope.max) {
-                    max = (day.d.getDate() > scope.max.getDate() && day.d.getMonth() >= scope.max.getMonth() && day.d.getFullYear() >= scope.max.getFullYear()) || (day.d.getMonth() > scope.max.getMonth() && day.d.getFullYear() >= scope.max.getFullYear());
+                    max = (d.getDate() > scope.max.getDate() && d.getMonth() >= scope.max.getMonth() && d.getFullYear() >= scope.max.getFullYear()) || (d.getMonth() > scope.max.getMonth() && d.getFullYear() >= scope.max.getFullYear());
                 }
                 if (scope.min) {
-                    min = (day.d.getDate() < scope.min.getDate() && day.d.getMonth() <= scope.min.getMonth() && day.d.getFullYear() <= scope.min.getFullYear()) || (day.d.getMonth() < scope.min.getMonth() && day.d.getFullYear() <= scope.min.getFullYear());
+                    min = (d.getDate() < scope.min.getDate() && d.getMonth() <= scope.min.getMonth() && d.getFullYear() <= scope.min.getFullYear()) || (d.getMonth() < scope.min.getMonth() && d.getFullYear() <= scope.min.getFullYear());
                 }
-                if (min || max || day.d.getMonth() !== scope.currDate.getMonth()) {
+                if (min || max || d.getMonth() !== cd.getMonth()) {
                     klass.push('text-muted');
                 }
-                if (day.d.getDate() === scope.currDate.getDate() && day.d.getMonth() === scope.currDate.getMonth() && day.d.getFullYear() === scope.currDate.getFullYear()) {
+                if (d.getDate() === cd.getDate() && d.getMonth() === cd.getMonth() && d.getFullYear() === cd.getFullYear()) {
                     klass.push('bg-primary');
                 }
                 return klass.join(' ');
