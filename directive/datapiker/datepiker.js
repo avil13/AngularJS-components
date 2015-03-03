@@ -3,7 +3,7 @@ APP.directive('datePiker', [function() {
         restrict: 'EA',
         templateUrl: 'datepiker.html',
         scope: {
-            currDate: '=date', // Date()
+            date: '=', // Date()
             firstDay: '@', // 1
             max: '=', // Date()
             min: '=' // Date()
@@ -19,7 +19,7 @@ APP.directive('datePiker', [function() {
                 return date;
             };
 
-            scope.currDate = scope.formatDate(scope.currDate);
+            scope.currDate = scope.formatDate( angular.copy(scope.date));
 
             if (scope.firstDay === undefined) {
                 scope.firstDay = 1;
@@ -121,7 +121,9 @@ APP.directive('datePiker', [function() {
                 if (scope.chekDate(day, true)) {
                     return false;
                 }
-                scope.currDate = day.d;
+                scope.date.setDate(day.d.getDate());
+                scope.date.setMonth(day.d.getMonth());
+                scope.date.setFullYear(day.d.getFullYear());
                 scope.typeView = false;
             };
 

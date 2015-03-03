@@ -16,11 +16,11 @@
 
 <body>
     <div class="container" ng-controller="IndexCtrl">
-        <div class="well"> {{t}} </div>
+        <div class="well"> {{t}} &nbsp;&nbsp;&nbsp;&nbsp; {{t2}} </div>
         <div class="clearfix"></div>
 
         <date-piker date="t" first-day="1"></date-piker>
-        <date-piker date="t2" first-day="1" min="t"></date-piker>
+        <date-piker date="t2" first-day="1" max="t"></date-piker>
 
     </div>
     <!--  -->
