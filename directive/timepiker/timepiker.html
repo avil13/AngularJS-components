@@ -1,0 +1,55 @@
+<div ng-switch on="typeView" ng-model="currDate">
+
+    <button class="btn btn-default" ng-switch-default ng-click="changeView()"><i class="glyphicon glyphicon-time"></i> &nbsp; {{currDate|date:'H:mm'}}</button>
+
+    <!-- timepiker  -->
+
+    <div class="time-piker col-xs-1" ng-switch-when="true">
+        <table>
+            <tr class="text-center">
+                <td>
+                    <a ng-click="action('h', true)" class="btn btn-link">
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                </td>
+                <td></td>
+                <td>
+                    <a ng-click="action('m', true)" class="btn btn-link">
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                </td>
+                <td></td>
+            </tr>
+            <tr class="text-center">
+                <td>
+                    <input type="text" class="form-control" ng-model="t.hour" ng-change="upd()" max="23" min="0" maxlength="2">
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="t.minutes" ng-change="upd()" max="59" min="0" maxlength="2">
+                </td>
+                <td>
+                    <button class="btn btn-default" ng-click="changeView()"><i class="glyphicon glyphicon-ok"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr class="text-center">
+                <td>
+                    <a ng-click="action('h', false)" class="btn btn-link">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </td>
+                <td></td>
+                <td>
+                    <a ng-click="action('m', false)" class="btn btn-link">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</div>

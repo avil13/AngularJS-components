@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="APP">
+
+<head>
+    <meta charset="UTF-8">
+    <title>timePiker</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-controller="IndexCtrl">
+
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+            <div class="well">
+                {{t | date: 'short'}}
+                <hr>
+                <time-piker time="t"></time-piker>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--  -->
+    <script>
+    var APP = angular.module('APP', []);
+    </script>
+    <!-- add timePiker -->
+    <script src="timepiker.js"></script>
+    <!-- /add timePiker -->
+
+    <script>
+    APP.controller('IndexCtrl', ['$scope', function($scope) {
+        $scope.t = new Date();
+    }]);
+    </script>
+</body>
+
+</html>

@@ -8,6 +8,8 @@
 
 * [datapiker](directive/datapiker/)
 
+* [timepiker](directive/timepiker/)
+
 * [menu](directive/admin-menu/)
 
 * [form](directive/form-input/)
