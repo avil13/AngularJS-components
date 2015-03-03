@@ -124,6 +124,9 @@ APP.directive('datePiker', [function() {
                 scope.date.setDate(day.d.getDate());
                 scope.date.setMonth(day.d.getMonth());
                 scope.date.setFullYear(day.d.getFullYear());
+                scope.currDate.setDate(day.d.getDate());
+                scope.currDate.setMonth(day.d.getMonth());
+                scope.currDate.setFullYear(day.d.getFullYear());
                 scope.typeView = false;
             };
 
