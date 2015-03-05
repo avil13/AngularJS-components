@@ -4,8 +4,8 @@
 
     <!-- timepiker  -->
 
-    <div class="time-piker col-xs-1" ng-switch-when="true">
-        <table>
+    <div class="time-piker" ng-switch-when="true">
+        <table class="col-xs-1">
             <tr class="text-center">
                 <td>
                     <a ng-click="action('h', true)" class="btn btn-link">
@@ -21,13 +21,13 @@
                 <td></td>
             </tr>
             <tr class="text-center">
-                <td>
+                <td class="form-group">
                     <input type="text" class="form-control" ng-model="t.hour" ng-change="upd()" max="23" min="0" maxlength="2">
                 </td>
                 <td>
                     :
                 </td>
-                <td>
+                <td class="form-group">
                     <input type="text" class="form-control" ng-model="t.minutes" ng-change="upd()" max="59" min="0" maxlength="2">
                 </td>
                 <td>
