@@ -1,10 +1,12 @@
 # AngularJS-components
-Набор директив, фильтров, фабрик для AngularJS
+Мой набор директив, фильтров, фабрик для AngularJS
 
 
 
 
 ## Директивы
+
+* [templater](directive/templater/)
 
 * [datapiker](directive/datapiker/)
 
@@ -21,4 +23,3 @@
 * [scrollup](directive/scrollup/)
 
 * [yndex-map](directive/yndex-map/)
-
